@@ -1,25 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-<<<<<<< HEAD
-import awsServerlessExpress from "aws-serverless-express";
-
-const app = express();
-const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// Routes
-=======
 
 const app = express();
 const port = 3000;
-const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
+const masterKey = "SOME_MASTER_KEY";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
 app.get("/random", (req, res) => {
   const randomIndex = Math.floor(Math.random() * jokes.length);
   res.json(jokes[randomIndex]);
@@ -28,15 +15,7 @@ app.get("/random", (req, res) => {
 app.get("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const foundJoke = jokes.find((joke) => joke.id === id);
-<<<<<<< HEAD
-  if (foundJoke) {
-    res.json(foundJoke);
-  } else {
-    res.status(404).json({ error: `Joke with id: ${id} not found.` });
-  }
-=======
   res.json(foundJoke);
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
 });
 
 app.get("/filter", (req, res) => {
@@ -52,10 +31,7 @@ app.post("/jokes", (req, res) => {
     jokeType: req.body.type,
   };
   jokes.push(newJoke);
-<<<<<<< HEAD
-=======
   console.log(jokes.slice(-1));
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
   res.json(newJoke);
 });
 
@@ -66,32 +42,16 @@ app.put("/jokes/:id", (req, res) => {
     jokeText: req.body.text,
     jokeType: req.body.type,
   };
-<<<<<<< HEAD
-  const searchIndex = jokes.findIndex((joke) => joke.id === id);
-  if (searchIndex > -1) {
-    jokes[searchIndex] = replacementJoke;
-    res.json(replacementJoke);
-  } else {
-    res.status(404).json({ error: `Joke with id: ${id} not found.` });
-  }
-=======
 
   const searchIndex = jokes.findIndex((joke) => joke.id === id);
 
   jokes[searchIndex] = replacementJoke;
   res.json(replacementJoke);
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
 });
 
 app.patch("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const existingJoke = jokes.find((joke) => joke.id === id);
-<<<<<<< HEAD
-  if (!existingJoke) {
-    return res.status(404).json({ error: `Joke with id: ${id} not found.` });
-  }
-=======
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
   const replacementJoke = {
     id: id,
     jokeText: req.body.text || existingJoke.jokeText,
@@ -99,10 +59,7 @@ app.patch("/jokes/:id", (req, res) => {
   };
   const searchIndex = jokes.findIndex((joke) => joke.id === id);
   jokes[searchIndex] = replacementJoke;
-<<<<<<< HEAD
-=======
   console.log(jokes[searchIndex]);
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
   res.json(replacementJoke);
 });
 
@@ -114,12 +71,8 @@ app.delete("/jokes/:id", (req, res) => {
     res.sendStatus(200);
   } else {
     res.status(404).json({
-<<<<<<< HEAD
-      error: `Joke with id: ${id} not found. No jokes were deleted.`,
-=======
       error: `Joke with id: ${id} not found.
       No jokes were deleted.`,
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
     });
   }
 });
@@ -131,28 +84,14 @@ app.delete("/all", (req, res) => {
     res.sendStatus(200);
   } else {
     res
-<<<<<<< HEAD
-      .status(403)
-=======
       .status(404)
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
       .json({ error: `You are not authorized to perform this action.` });
   }
 });
 
-<<<<<<< HEAD
-// Create serverless Express server
-const server = awsServerlessExpress.createServer(app);
-
-// Lambda handler
-exports.handler = (event, context) => {
-  return awsServerlessExpress.proxy(server, event, context);
-};
-=======
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
 });
->>>>>>> c5c07ae4d06a5914560b1bd071e9367ffc9e44ce
 
 ///////////////////////////
 // Initial Data
