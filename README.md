@@ -74,7 +74,7 @@ The server will start on http://localhost:3000.
 
 ### Notes
 
-- The master key for the `/all` DELETE endpoint is `4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT`.
+- The master key for the `/all` DELETE endpoint is known to me alone for now.
 - If a joke ID is not found, the API returns a 404 status with an error message.
 - The `/patch` endpoint updates only the provided fields, leaving others unchanged.
 
