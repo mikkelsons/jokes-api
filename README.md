@@ -2,7 +2,10 @@
 
 A simple RESTful API built with Node.js and Express to manage and retrieve jokes. The API supports CRUD operations for jokes, filtering by type, and retrieving random jokes. It includes a predefined dataset of 100 jokes categorized by types such as Science, Puns, Wordplay, and more.
 
-This project was created as part of "The Complete Full-Stack Web Development Bootcamp" on Udemy, taught by Dr. Angela Yu.
+### Try the API
+
+**Find the documentation here:**
+https://docs.joke-api.smikkelson.dev
 
 ## Table of Contents
 
@@ -11,6 +14,8 @@ This project was created as part of "The Complete Full-Stack Web Development Boo
 - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
 - [Example Requests](#example-requests)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -46,6 +51,7 @@ npm install express body-parser
 ```
 
 **Start the server**
+Start the server:
 
 ```bash
 node index.js
@@ -144,7 +150,7 @@ curl -X POST http://localhost:3000/jokes -d "text=Why did the computer go to art
 ### Delete All Jokes
 
 ```bash
-curl -X DELETE "http://localhost:3000/all?key=4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT"
+curl -X DELETE "http://localhost:3000/all?key=[MASTER-KEY]"
 ```
 
 **Response**:
