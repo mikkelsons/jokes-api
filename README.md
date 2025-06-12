@@ -150,7 +150,7 @@ curl -X POST http://localhost:3000/jokes -d "text=Why did the computer go to art
 ### Delete All Jokes
 
 ```bash
-curl -X DELETE "http://localhost:3000/all?key=[MASTER-KEY]"
+curl -X DELETE "http://localhost:3000/all?key=[MASTER_KEY]"
 ```
 
 **Response**:
